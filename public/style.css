@@ -1,10 +1,31 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  background-color: rgb(223, 223, 223);
+
 }
 
 main {
-  padding: 1rem;
+  padding: 0;
   height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+}
+
+.Sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: rgb(223, 223, 223);
+  margin: 0;
+  padding: 10px;
+}
+
+.PageContents{
+  background-color: rgb(243, 243, 243);
+  height: 100%;
+  width: 100%;
+  padding: 10px;
 }

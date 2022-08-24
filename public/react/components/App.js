@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { PagesList } from './PagesList';
 
+
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
+import { PageContents } from './PageContents';
 
 export const App = () => {
 
@@ -23,10 +25,17 @@ export const App = () => {
 	}, []);
 
 	return (
-		<main>	
-      <h1>WikiVerse</h1>
-			<h2>An interesting 📚</h2>
-			<PagesList pages={pages} />
+		<main>
+			{/* <div>
+				<Sidebar />
+			</div>	 */}
+			<div className='Sidebar'>
+      			<h1>WikiVerse</h1>
+				<h2>An interesting 📚</h2>
+				<PagesList pages={pages} />
+			</div>
+			<PageContents />
 		</main>
+
 	)
 }
