@@ -7,5 +7,6 @@ import {PageContents} from './components/PageContents'
 
 ReactDOM.render(
 	<App />,
+	// <PageContents />,
 	document.getElementById('root')
 )

@@ -20,12 +20,16 @@ body {
   height: 100%;
   background-color: rgb(223, 223, 223);
   margin: 0;
-  padding: 10px;
+  padding: 0px;
 }
 
 .PageContents{
   background-color: rgb(243, 243, 243);
   height: 100%;
   width: 100%;
+  padding: 10px;
+}
+
+.HomePage{
   padding: 10px;
 }

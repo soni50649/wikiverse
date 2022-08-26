@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { Page, User, Tag } = require("../models");
 
+router.use(express.json())
+
 // GET /wiki
 router.get("/", async (req, res, next) => {
   try {
@@ -12,40 +14,49 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// POST /wiki
-router.post("/", async (req, res, next) => {
-  try {
-    const [user, wasCreated] = await User.findOrCreate({
-      where: {
-        name: req.body.name,
-        email: req.body.email
-      }
-    });
+// POST /wiki //CREATING A USER?
+router.post("/create", async (req, res, next) => {
+  console.log("POST request called")
+  console.log(req.body)
 
-    const page = await Page.create(req.body);
+  const page = await Page.create(req.body);
 
-    await page.setAuthor(user);
+  // res.send(page);
 
-    if(req.body.tags) {
-      const tagArray = req.body.tags.split(' ');
-      const tags = [];
-      for (let tagName of tagArray) {
-        const [tag, wasCreated] = await Tag.findOrCreate({
-          where: {
-            name: tagName
-          }
-        });
-        if (wasCreated) {
-          tags.push(tag);
-        }
-      }
-      await page.addTags(tags);
-    }
+  res.sendStatus(200)
 
-    res.send(page);
-  } catch (error) {
-    next(error);
-  }
+  // try {
+  //   const [user, wasCreated] = await User.findOrCreate({
+  //     where: {
+  //       name: req.body.name,
+  //       email: req.body.email
+  //     }
+  //   });
+
+  //   const page = await Page.create(req.body);
+
+  //   await page.setAuthor(user);
+
+  //   if(req.body.tags) {
+  //     const tagArray = req.body.tags.split(' ');
+  //     const tags = [];
+  //     for (let tagName of tagArray) {
+  //       const [tag, wasCreated] = await Tag.findOrCreate({
+  //         where: {
+  //           name: tagName
+  //         }
+  //       });
+  //       if (wasCreated) {
+  //         tags.push(tag);
+  //       }
+  //     }
+  //     await page.addTags(tags);
+  //   }
+
+  //   res.send(page);
+  // } catch (error) {
+  //   next(error);
+  // }
 });
 
 // GET /wiki/search
@@ -88,6 +99,9 @@ router.put("/:slug", async (req, res, next) => {
 
 // DELETE /wiki/:slug
 router.delete("/:slug", async (req, res, next) => {
+  console.log("DELETE REQUEST CALLED SUCCESSFULLY")
+  
+
   try {
     await Page.destroy({
       where: {
