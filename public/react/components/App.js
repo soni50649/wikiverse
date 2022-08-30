@@ -37,7 +37,7 @@ export const App = () => {
 				<div className='Sidebar'>
 					<h1><Link to='/home'>Wikiverse</Link></h1>
 					<Link to='/createpage'><h2>Create a page</h2></Link>
-					<h2><style >An interesting 📚</></h2>
+					<h2><style >An interesting 📚</style></h2>
 
 					<PagesList pages={pages} setSelectedPages={setSelectedPages}/>
 				</div>
