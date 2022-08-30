@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react'
-// import Axios from 'axios'
 import apiURL from '../api';
 
 export function CreatePage(){
@@ -44,6 +43,7 @@ export function CreatePage(){
 
         console.log("POST REQUEST ATTEMPT")
         // navigate(`${apiURL}/home`)
+        window.location.href="/creationsuccessful"
     }
 
 
