@@ -1,4 +1,7 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+* { background-color: beige;
+  font-family: 'Barlow Condensed', sans-serif;
   margin: 0;
   box-sizing: border-box;
 
